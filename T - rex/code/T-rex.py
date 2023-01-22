@@ -32,6 +32,8 @@ def setScore():
     rect_score = score_render.get_rect(center = (WIDTH - 40, 20))
     screen.blit(score_render, rect_score)
 
+     #hàm hiển thị high score
+
 def setHighScore():
     high_score_render = font_score.render(f'HI 0{high_score}', True, (28, 28, 28))
     rect_high_score = high_score_render.get_rect(center = (WIDTH - 100, 20))
@@ -168,7 +170,6 @@ class Tree(pygame.sprite.Sprite):
         screen.blit(self.image, self.rect)
 
     def update(self):
-
         self.rect.left -= self.speed
         if self.rect.left < -self.width_img:
             self.rect.left += screen.get_width()
@@ -182,15 +183,7 @@ class Tree(pygame.sprite.Sprite):
 Tree_ = Tree(img_tree1, WIDTH, HEIGHT - 100)
 
 #biến check khi đang chơi game
-on, click = True, False
-
-#hàm kiểm tra click replay
-def checkClickReplay():
-    check = False
-    if click:
-        if (262 < pygame.mouse.get_pos()[0] < 325) and (143 < pygame.mouse.get_pos()[1] < 200):
-            check = True
-    return check
+on = True
 
 # main loop
 while not done:
@@ -227,23 +220,6 @@ while not done:
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_SPACE:
                 pass
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            key = pygame.mouse.get_pressed() 
-            # kiểm tra nhấp chuột và replay       
-            if key[0]:
-                click = True
-                Tree_.collide = True
-                if checkClickReplay() == True:
-                    Tree_ = Tree(img_tree1, WIDTH, HEIGHT - 100)
-                    Tree_.draw()
-                    Tree_.speed = 3
-                    Ground.speed = 3
-                    score = 0
-                    score_plus = 1
-                    Dino.movement_plus = 12
-        if event.type == pygame.MOUSEBUTTONUP:     
-            if key[0]:
-                click = False
     # kiểm tra score để tăng tốc độ game
     if score == 100:
         pygame.mixer.Sound.play(get_point_sound)
