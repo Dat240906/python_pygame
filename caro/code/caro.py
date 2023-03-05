@@ -11,7 +11,8 @@ screen = pygame.display.set_mode([WIDTH, HEIGHT])
 pygame.display.set_caption('Tic Tac Toe Game')
 
 #load img
-dir = r'C:\Users\ADMIN\Documents\python_tkinter\GAMEKHONGHAY\caro\img'
+
+dir = 'img'
 def load_scale_img(path_img, sizex, sizey):
     img = pygame.image.load(f'{dir}\{path_img}').convert_alpha()
     img_scale = pygame.transform.scale(img, (sizex, sizey))
@@ -21,15 +22,15 @@ img_bg = load_scale_img('bg.png', 300, 300)
 img_replay = load_scale_img('replay.png', 40, 40)
 
 # font
-font = pygame.font.Font(r'C:\Users\ADMIN\Documents\python_tkinter\GAMEKHONGHAY\caro\font\BLOCKSS.otf', 100)
-font_result = pygame.font.Font(r'C:\Users\ADMIN\Documents\python_tkinter\GAMEKHONGHAY\caro\font\BLOCKSS.otf', 40)
-font_score = pygame.font.Font(r'C:\Users\ADMIN\Documents\python_tkinter\GAMEKHONGHAY\caro\font\BLOCKSS.otf', 18)
+font = pygame.font.Font(r'font\BLOCKSS.otf', 100)
+font_result = pygame.font.Font(r'font\BLOCKSS.otf', 40)
+font_score = pygame.font.Font(r'font\BLOCKSS.otf', 18)
 
 #load sound
-sound_click = pygame.mixer.Sound(r'C:\Users\ADMIN\Documents\python_tkinter\GAMEKHONGHAY\caro\sound\click_jump.wav')
-sound_restart =  pygame.mixer.Sound(r'C:\Users\ADMIN\Documents\python_tkinter\GAMEKHONGHAY\caro\sound\chọn.wav')
-sound_win = pygame.mixer.Sound(r'C:\Users\ADMIN\Documents\python_tkinter\GAMEKHONGHAY\caro\sound\win.wav')
-sound_draw = pygame.mixer.Sound(r'C:\Users\ADMIN\Documents\python_tkinter\GAMEKHONGHAY\caro\sound\draw.wav')
+sound_click = pygame.mixer.Sound(r'sound\click_jump.wav')
+sound_restart =  pygame.mixer.Sound(r'sound\chọn.wav')
+sound_win = pygame.mixer.Sound(r'sound\win.wav')
+sound_draw = pygame.mixer.Sound(r'sound\draw.wav')
 '''
 #1  #2  #3
 
